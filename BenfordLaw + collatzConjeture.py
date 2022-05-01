@@ -7,13 +7,13 @@ from random import randint
 # seed random number generator
 seed(2)
 # generate some integers
-numeros_validos = [] #150 numeros con los cuales se cumple la ley de Benford cuando se aplica la conjetura de Collatz
-numeros_invalidos = [] # 150 numeros con los cuales no se cumple la ley de Benford al aplicar la conjetura de Collatz
+numeros_validos = [] # 150 numbers with which Benford's law is SATISFIED when the Collatz conjecture is applied
+numeros_invalidos = [] # 150 numbers with which Benford's law is NOT SATISFIED when applying the Collatz conjecture
 a = 0
 while a < 150 :
 	value = randint(1, 100000)
 	inicio = value
-    #Collatz
+# Collatz
 	arr = [0]
 	for _ in range(10):
 		arr.append(0)
@@ -28,8 +28,8 @@ while a < 150 :
 			value = value * 3 + 1
 	i = 2
 	valido = 0
-# Se utiliza esta pseudo ley de Benford porque no existe secuencia de Collatz que cumpla con la ley exacta
-	#Ley de Benford no se cumple con exactitud
+# Pseudo Benford's law is used, there is no Collatz sequence that satisfies the exact law
+# Benford's law does not hold exactly
 	if arr[1] + arr[2] + arr[3]   > arr[4] + arr[5] + arr[6] and arr[4] + arr[5] + arr[6] > arr[7] + arr[8] + arr[9]:
 		valido = 1
 	if valido == 1:
@@ -40,38 +40,12 @@ while a < 150 :
 	if valido == 1:
 		a -= 1
 	a += 1
-
-print("\nLos numeros invalidos son: ")
+# Showing numbers...
+print("\nThe invalid numbers are: ")
 print(" ")
 for x in range(150):
 	print(numeros_invalidos[x])
-print("\nLos numeros validos son: ")
+print("\nValid numbers are:: ")
 
 for x in range(150):
 	print(numeros_validos[x])
-        
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
